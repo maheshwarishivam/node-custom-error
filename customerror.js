@@ -2,7 +2,7 @@
  * Created by shivam on 18/05/15.
  *
  * Usage:
- * var CustomError = require('/api/services/errors/customError.js');
+ * var CustomError = require('node-custom-error');
  *
  * function doSomethingBad() {
  *  throw new CustomError('It went bad!', 42);
