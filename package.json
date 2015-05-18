@@ -14,7 +14,12 @@
     "CustomError"
   ],
   "author": "Shivam Maheshwari <sayhello@shivammaheshwari.com> (http://www.shivammaheshwari.com)",
-  "license": "GPLv3",
+  "licenses": [
+    {
+      "type": "GPLv3",
+      "url": "https://github.com/maheshwarishivam/node-custom-error/blob/master/LICENSE"
+    }
+  ],
   "bugs": {
     "url": "https://github.com/maheshwarishivam/node-custom-error/issues"
   },
