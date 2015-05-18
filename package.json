@@ -1,0 +1,22 @@
+{
+  "name": "node-custom-error",
+  "version": "1.0.0",
+  "description": "Custom Errors for NodeJS",
+  "main": "customerror.js",
+  "scripts": {
+    "test": "node ./test-customerror.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://maheshwarishivam@github.com/maheshwarishivam/node-custom-error.git"
+  },
+  "keywords": [
+    "CustomError"
+  ],
+  "author": "Shivam Maheshwari <sayhello@shivammaheshwari.com> (http://www.shivammaheshwari.com)",
+  "license": "GPLv3",
+  "bugs": {
+    "url": "https://github.com/maheshwarishivam/node-custom-error/issues"
+  },
+  "homepage": "https://github.com/maheshwarishivam/node-custom-error"
+}
