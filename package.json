@@ -1,6 +1,6 @@
 {
   "name": "node-custom-error",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Custom Errors for NodeJS",
   "main": "customerror.js",
   "scripts": {
