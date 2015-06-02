@@ -5,17 +5,18 @@
  * var CustomError = require('node-custom-error');
  *
  * function doSomethingBad() {
- *  throw new CustomError('It went bad!', 42);
+ *  throw new CustomError('It went bad!', 42, 'There was an error processing your request');
  * }
  */
 
 'use strict';
 
-module.exports = function CustomError(message, errorNumber) {
+module.exports = function CustomError(errorMessage, errorNumber, errorBody) {
   Error.captureStackTrace(this, this.constructor);
   this.name = this.constructor.name;
-  this.message = message;
+  this.message = errorMessage;
   this.errorNumber = errorNumber;
+  this.errorBody = (typeof errorBody != 'undefined')?errorBody:'';
 };
 
 require('util').inherits(module.exports, Error);

@@ -4,7 +4,7 @@ var assert = require('assert');
 var CustomError = require('./customerror.js');
  
 function doSomethingBad() {
-  throw new CustomError('It went bad!', 42);
+  throw new CustomError('It went bad!', 42, 'There was an error processing your request');
 }
  
 try {
@@ -38,6 +38,7 @@ try {
  
   // The extra property should have been set
   assert.strictEqual(err.errorNumber, 42);
+  assert.strictEqual(err.errorBody, 'There was an error processing your request');
 }
  
 // Spoiler: It passes!
