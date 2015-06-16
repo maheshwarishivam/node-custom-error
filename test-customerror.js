@@ -6,9 +6,16 @@ var CustomError = require('./customerror.js');
 function doSomethingBad() {
   throw new CustomError('It went bad!', 42, 'There was an error processing your request');
 }
- 
+
+function catchSomethingBad() {
+  try {
+    doSomethingBad();
+  } catch(err) {
+    throw new CustomError(err, 43, 'Oops! There was an error processing your request!');
+  }
+}
 try {
-  doSomethingBad();
+  catchSomethingBad();
 } catch (err) {
   // The name property should be set to the error's name
   assert(err.name = 'CustomError');
@@ -24,21 +31,24 @@ try {
  
   // The error should have recorded a stack
   assert(err.stack);
- 
+
   // toString should return the default error message formatting
   assert.strictEqual(err.toString(),
-                     'CustomError: It went bad!');
+                     'CustomError: CustomError : It went bad!');
  
   // The stack should start with the default error message formatting
   assert.strictEqual(err.stack.split('\n')[0],
                      'CustomError: It went bad!');
  
-  // The first stack frame should be the function where the error was thrown.
+  // The first stack frame should be the function where the error was originally thrown.
   assert.strictEqual(err.stack.split('\n')[1].indexOf('doSomethingBad'), 7);
+
+  //The second stack frame should be the function where it was thrown again.
+  assert.strictEqual(err.stack.split('\n')[2].indexOf('catchSomethingBad'), 7);
  
   // The extra property should have been set
-  assert.strictEqual(err.errorNumber, 42);
-  assert.strictEqual(err.errorBody, 'There was an error processing your request');
+  assert.strictEqual(err.errorNumber, 43);
+  assert.strictEqual(err.errorBody, 'Oops! There was an error processing your request!');
 }
  
 // Spoiler: It passes!
